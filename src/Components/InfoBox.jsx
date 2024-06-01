@@ -15,7 +15,10 @@ export const InfoBox = ({ weatherInfo }) => {
   const scatteredCloudURL = 'https://plus.unsplash.com/premium_photo-1661897016268-b77ad5186d02?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2NhdHRlcmVkJTIwY2xvdWRzfGVufDB8fDB8fHww';
   const clearSkyURL = 'https://cdn.pixabay.com/photo/2015/06/27/16/38/sky-823624_640.jpg';
   const lightRainURL = 'https://cdn.pixabay.com/photo/2016/11/29/05/55/adult-1867665_1280.jpg';
+  const moderateRainURL = 'https://cdn.pixabay.com/photo/2020/01/15/17/38/street-4768502_640.jpg';
   const smokeURL = 'https://images.unsplash.com/photo-1580462611434-39cde8c29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHNtb2tlJTIwd2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D';
+  const overcastCloudURL = 'https://images.unsplash.com/photo-1489769459544-1b2a788df7b6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG92ZXJjYXN0JTIwY2xvdWRzfGVufDB8fDB8fHww';
+  const mistURL='https://images.unsplash.com/photo-1543968996-ee822b8176ba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWlzdHxlbnwwfHwwfHx8MA%3D%3D';
 
   // Function to get current day and date
   const getCurrentDayAndDate = () => {
@@ -36,18 +39,20 @@ export const InfoBox = ({ weatherInfo }) => {
       <Card className='card'>
         <CardMedia
           className='card-media'
-          image={weatherInfo.weather === 'broken clouds' ? brokenCloudURL : weatherInfo.weather === 'Haze' ? hazeURL : weatherInfo.weather === 'scattered clouds' ? scatteredCloudURL : weatherInfo.weather === 'clear sky' ? clearSkyURL : weatherInfo.weather === 'light rain' ? lightRainURL : weatherInfo.weather === 'smoke' ? smokeURL : InitialImageURL}
+          image={weatherInfo.weather === 'broken clouds' ? brokenCloudURL : weatherInfo.weather === 'Haze' ? hazeURL : weatherInfo.weather === 'scattered clouds' ? scatteredCloudURL : weatherInfo.weather === 'clear sky' ? clearSkyURL : weatherInfo.weather === 'light rain' ? lightRainURL : weatherInfo.weather === 'smoke' ? smokeURL : weatherInfo.weather === 'moderate rain' ? moderateRainURL : weatherInfo.weather === 'overcast clouds' ? overcastCloudURL : weatherInfo.weather==='mist'?mistURL:InitialImageURL}
           title="Weather Image"
         />
         <CardContent className='card-content'>
-          <Typography gutterBottom variant="h5" component="div" className='city'>
-            <Room />&nbsp;
-            {weatherInfo.city}&nbsp;&nbsp;{
-              weatherInfo.temp < 15 ? <AcUnitIcon /> : <WbSunnyIcon />
-            }
-          </Typography>
+          {weatherInfo.city !== '' && (
+            <Typography gutterBottom variant="h5" component="div" className='city'>
+              <Room />&nbsp;
+              {weatherInfo.city}&nbsp;&nbsp;{
+                weatherInfo.temp < 15 ? <AcUnitIcon /> : <WbSunnyIcon />
+              }
+            </Typography>
+          )}
           <Typography variant="body2" color="text.secondary" component={"span"} className='weather-info'>
-          <div className='date'>{getCurrentDayAndDate()}</div>
+            <div className='date'>{getCurrentDayAndDate()}</div>
             <div className='weather-data'>Temperature: {weatherInfo.temp}&deg;C</div>
             <div className='weather-data'>Humidity: {weatherInfo.humidity}%</div>
             <div className='weather-data'>Weather: {weatherInfo.weather}</div>
