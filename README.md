@@ -40,6 +40,9 @@ The Weather App is a easy to use application that can supply you with real-time 
 2. Enter the name of the city in the search bar and click "Search".
 3. View the current weather information for the entered city.
 
+### Deployment
+The Weather App is hosted on Vercel. You can access the live application [here](https://weather-app-bice-chi.vercel.app/).
+
 ### Project Structure
 - `public/`: Contains static assets.
 - `src/`: Contains the source code.
