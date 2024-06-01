@@ -1,0 +1,70 @@
+/* InfoBox.css */
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.card {
+    width: 30rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-media {
+    height: 200px;
+}
+
+.card-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.card-content .MuiTypography-h5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.card-content .MuiTypography-h5 .MuiSvgIcon-root {
+    margin-right: 8px;
+}
+
+.card-content .MuiTypography-body2 {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.card-content .weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-content .weather-info div {
+    margin-bottom: 1px;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.date {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 16px;
+}
+
+.weather-data {
+    color: #3c760a;
+}
